@@ -22,49 +22,6 @@ Let's review **components** quickly, just to make sure we're on the same page.
 
 So what exactly is a component in react? Components come in two flavors: 
 
-- class-based components
-- functional components
-
-We're going to concentrate on class-based components to help show the ways you can do styling. These differ a bit for functional React approaches (which will be talked about in a future unit).
-
-## Class-based Components (5 min / 0:10)
-
-Class-based components emerged as the standard for React as version `16` was [released publicly back in 2017](https://github.com/facebook/react/blob/master/CHANGELOG.md#1600-september-26-2017). This gave the React core team the ability to add `state` into components and generally changed how web apps could be developed.
-
-You've probably seen a few class-based components at this point, but they'll generally contain:
-- an `import` statement at the top
-- a custom `class` name that extends the `React.Component` subclass
-- a `constructor` that binds data to the component, and optionally houses a `state` object
-- some custom methods that modify that `state`
-- a `render()` method that uses `return` to render the component into a browser
-
-Here's a simple example of a component that shows some text from its state object:
-
-```jsx
-// SimpleComponent.js
-import React from "react"
-
-class SimpleComponent extends Component {
-  // Make sure you set up a constructor and pass in props!
-  // This is how props attach to your class
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      statement = "You have more dollars than sense -John's dad."
-    }
-  }
-
-  render() {
-    return 
-      <div> 
-        Now, a word from my dad: { this.state.statement }
-      </div>
-  }
-}
-
-export default SimpleComponent
-```
 
 ## CSS Styling of React Components (15 min / 0:25)
 
@@ -93,30 +50,6 @@ import SimpleComponent from "./simplecomponent.js";
 ReactDOM.render(<SimpleComponent />, document.getElementById("root"));
 ```
 
-```jsx
-// SimpleComponent.js
-import React from "react"
-
-class SimpleComponent extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      statement = "You have more dollars than sense -John's dad."
-    }
-  }
-
-  render() {
-    // Notice all that I added in my return is `className` that's sufficient to hook into the global stylesheet
-    return 
-      <div className="dad-block"> 
-        Now, a word from my dad: { this.state.statement }
-      </div>
-  }
-}
-
-export default SimpleComponent
-```
 
 ## Component-level Stylesheet
 
@@ -128,33 +61,6 @@ In such a layout, you'd see the following:
 
 ![css sheet hierarchy](./images/css-per-component.png)
 
-Inside of our `SimpleComponent` you would include the CSS file, much like you've been doing in your project's base `index.js`. Down in `render` just use the `className` prop to apply your normal CSS selectors like you've been doing all along:
-
-```jsx
-// SimpleComponent.js
-import React from "react"
-import "./simple-component.css"
-
-class SimpleComponent extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      statement = "You have more dollars than sense -John's dad."
-    }
-  }
-
-  render() {
-    // Notice all that I added in my return is `className` that's sufficient to hook into the global stylesheet
-    return 
-      <div className="dad-block"> 
-        Now, a word from my dad: { this.state.statement }
-      </div>
-  }
-}
-
-export default SimpleComponent
-```
 
 The advantages of this approach are that you can pair the JS/JSX/React component with its styles and then reasonably expect the styles to match the component you're looking at. This is a huge upgrade over having one global sheet where concerns can quickly get complicated. 
 
@@ -172,33 +78,6 @@ React natively supports this behavior natively with the `style` prop and does in
 
 With React, we have no pages so we don't have to worry as much about where each sheet gets referenced. And components get loaded as needed, so if you pair the styles directly to the component, they're right where they need to be. They only get invoked and added into the DOM when it's time.
 
-Note how the styles are written in the `render` method (camelCase with values surrounded by quotes - otherwise the normal styling rules apply):
-
-```jsx
-// SimpleComponent.js
-import React from "react"
-
-class SimpleComponent extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      statement = "You have more dollars than sense -John's dad."
-    }
-  }
-
-  render() {
-    // using style prop, note how the styles are written
-    // each one separated by a comma, camelCase, value in quotes
-    return 
-      <div style={ margin: '5px', backgroundColor: 'rgb(15,15,15)' }> 
-        Now, a word from my dad: { this.state.statement }
-      </div>
-  }
-}
-
-export default SimpleComponent
-```
 
 Inline styles are used, but not that often. There are still better ways...
 
@@ -219,25 +98,6 @@ const dadBlock = {
   border: '5px solid pink'
 };
 
-class SimpleComponent extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      statement = "You have more dollars than sense -John's dad."
-    }
-  }
-
-  render() {
-    // use the same style prop, but throw the const object you made above in there
-    return 
-      <div style={ dadBlock }> 
-        Now, a word from my dad: { this.state.statement }
-      </div>
-  }
-}
-
-export default SimpleComponent
 ```
 
 Now, this is starting to look like a stylesheet a bit if we squint our eyes. The styles are finally being written in the component, we can add as many of them as we need and the object literals look a lot like selector names. 
