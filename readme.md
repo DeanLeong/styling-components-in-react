@@ -164,9 +164,9 @@ As applications and user demands have gotten increasingly sophisticated, the too
 
 Don't get caught in the cross talk about what a 'real' website is. You've learned page-based architecture, now learn component-based ones that utilize the best of breed tools like `styled-components`. Save the arguments for someone else.
 
-## Advanced Styled-components
+<!-- ## Advanced Styled-components
 
-TBD.
+TBD. -->
 
 ## Thoughts on CSS-in-JSS
 
