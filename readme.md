@@ -27,6 +27,8 @@ That is a tricky question with React. If you want to stick with pure CSS, you re
 
 Neither of these are inherently bad. And, in fact, you almost always want to use a global CSS document _in addition_ to any other ways of styling.
 
+Let's dive a little deeper.
+
 ### Option 1: The Global CSS Stylesheet
 
 If we go with a global sheet, you want to add the `main.css` file to the root of the project, usually a `index.js` file you are provided. Up until now, this is probably what you've been seeing in the `create-react-app` boilerplate we've been showing you. That's a good indication people in the real world actual use this method. That's true to some extent - if the project is small enough. As a project grows, this becomes unruly.
