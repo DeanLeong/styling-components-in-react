@@ -31,7 +31,7 @@ Let's dive a little deeper.
 
 ### Option 1: The Global CSS Stylesheet
 
-If we go with a global sheet, you want to add the `main.css` file to the root of the project, usually a `index.js` file you are provided. Up until now, this is probably what you've been seeing in the `create-react-app` boilerplate we've been showing you. That's a good indication people in the real world actual use this method. That's true to some extent - if the project is small enough. As a project grows, this becomes unruly.
+If we go with a global sheet, create-react-app has already provided your `index.css` and `App.css` files. Up until now, this is probably what you've been seeing in the `create-react-app` boilerplate we've been showing you. That's a good indication people in the real world actual use this method. That's true to some extent - if the project is small enough. As a project grows, this becomes unruly.
 
 Applied to our component above, **you wouldn't see any CSS imports**. Again, we import to the `index.js` file which would then include the above component, so the styles are available down the component tree.
 
@@ -67,7 +67,7 @@ If you keep pulling the string on separating your styles to get them closer to y
 
 ### Option 3: Inline Styles
 
-React natively supports this behavior natively with the `style` prop and does inline styling on your component elements. This sounds crazy coming from a page-based setup, but in React it becomes _slightly_ less crazy.
+React natively supports this behavior natively with the `style` prop and does inline styling on your component elements. This sounds crazy coming from a page-based setup, but in React it becomes _slightly_ less chaotic.
 
 With React, we have no pages so we don't have to worry as much about where each sheet gets referenced. And components get loaded as needed, so if you pair the styles directly to the component, they're right where they need to be. They only get invoked and added into the DOM when it's time.
 
@@ -77,7 +77,7 @@ Inline styles are used, but not that often. There are still better ways...
 
 You can take this same idea a bit further if you want to abstract the property/value pairs off the component in JSX. It is possible to move the style property/value pairs into object literal variables, usually defined as `const`.
 
-Those variables contain property/value pairs without the familiar selectors you are probably looking for (note that the properties are camelCased, ie if you have `background-color` that becomes `backgroundColor` in React)
+Those variables contain property/value pairs without the familiar selectors you are probably looking for (note that the properties are camelCase, so if you have `background-color` that becomes `backgroundColor` in React)
 
 ```jsx
 // SimpleComponent.js
