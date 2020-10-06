@@ -107,7 +107,7 @@ Emotion is very similar to styled-components, so it's hard to argue for one over
 
 All of these packages are worth exploring, but we're going to focus in on styled-components and show you the ins-and-outs of it.
 
-## Advanced Usage of styled-components
+## Advanced Usage of Styled-Components
 
 `styled-components` extend the ideas in React's native styling in very useful, creative ways. Instead of them being objects, they are template literals. Inside each literal, you're extended the `styled-components` object (usually written as `styled`) and attaching a DOM element to it. The entire expression is put into a variable.
 
