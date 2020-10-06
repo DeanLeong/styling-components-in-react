@@ -2,36 +2,32 @@
 
 ## Learning Objectives
 
-- Review the different ways we can style a React app (CSS or CSS-in-JS).
-- Discuss the benefits and drawbacks of both approaches.
-- Show examples of the preferred standard for CSS-in-JS, `styled-components` library.
+In this lesson, we will be looking at how components are styled within a React application. We will compare and contrast the most common approaches available to React developers, including their pros and cons, which include:
 
-## Framing (5 min / 0:05)
-
-In this lesson, we will be looking at how components are styled within a React
-application. We will compare and contrast the different approaches available to React developers, which include:
-
-- using a global CSS, like other projects
-- attaching a CSS file to an individual component
-- putting our styles directly into a React JS file directly
-- using the `styled-components` library to create styled components' template literal pattern
+- Global CSS Stylesheets,
+- Component-based CSS Stylesheets,
+- In-Line CSS, and
+- The preferred standard, CSS-in-JS, using the `styled-components` library and the template literal pattern.
 
 Let's review **components** quickly, just to make sure we're on the same page.
 
-<!-- ## Components
+<details><summary>What are React components?</summary>
+  <br>
+  "Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and returns HTML via a render function. Components come in two types, Class components and Function components."
+</details>
 
-So what exactly is a component in react? Components come in two flavors:  -->
+## CSS Styling of React Components
 
-## CSS Styling of React Components (15 min / 0:25)
+Given this modular style, styling with CSS presents a challenge for us: _Where exactly do we put the styles?_ 
 
-Give the above component, styling with CSS presents a challenge for us: _where exactly do we put the styles?_ That is a tricky question with React. If you want to stick with straight CSS, you really have two options:
+That is a tricky question with React. If you want to stick with pure CSS, you really have two options:
 
 - Have a global stylesheet
-- Have per-component stylesheets
+- Have component stylesheets
 
-Neither of these are inherently bad. And, in fact, you almost always want to use a global CSS document in addition to any CSS-in-JS way of doing styling in React.
+Neither of these are inherently bad. And, in fact, you almost always want to use a global CSS document _in addition_ to any other ways of styling.
 
-## Global Stylesheet
+### Option 1: The Global CSS Stylesheet
 
 If we go with a global sheet, you want to add the `main.css` file to the root of the project, usually a `index.js` file you are provided. Up until now, this is probably what you've been seeing in the `create-react-app` boilerplate we've been showing you. That's a good indication people in the real world actual use this method. That's true to some extent - if the project is small enough. As a project grows, this becomes unruly.
 
@@ -49,7 +45,7 @@ import SimpleComponent from "./simplecomponent.js";
 ReactDOM.render(<SimpleComponent />, document.getElementById("root"));
 ```
 
-## Component-level Stylesheet
+### Option 2: The Component-Level CSS Stylesheet
 
 You can continue to use plain CSS and still conform to the component pattern React sets up in our app. Just break your per-component styles into separate stylesheets. Typically, you'll see each sheet paired with a component in a sub-folder tucked nicely into the `src` folder of your app.
 
@@ -63,13 +59,11 @@ The advantages of this approach are that you can pair the JS/JSX/React component
 
 On projects of sufficient scale, breaking up CSS is a must. Think about the developer experience of having Instagram or Spotify's entire site running off of one stylesheet. Try managing those merge conflicts!
 
-And while separated stylesheets are a win, could we do even better?
-
-## CSS-in-JS Concept (15 min / 0:40)
+And while separated stylesheets are advantageous, could we do even better?
 
 If you keep pulling the string on separating your styles to get them closer to your components, eventually you'll probably consider putting the styles **directly into your component**. This is very much a thing you can do.
 
-## React Inline Styles
+### Option 3: Inline Styles
 
 React natively supports this behavior natively with the `style` prop and does inline styling on your component elements. This sounds crazy coming from a page-based setup, but in React it becomes _slightly_ less crazy.
 
@@ -77,7 +71,7 @@ With React, we have no pages so we don't have to worry as much about where each 
 
 Inline styles are used, but not that often. There are still better ways...
 
-## Variables as styles
+#### Style Variables
 
 You can take this same idea a bit further if you want to abstract the property/value pairs off the component in JSX. It is possible to move the style property/value pairs into object literal variables, usually defined as `const`.
 
@@ -99,7 +93,7 @@ Now, this is starting to look like a stylesheet a bit if we squint our eyes. The
 
 We're also not bloating global scope with this approach, it's all invoked only when this component gets called through the DOM tree by React. The advantages are adding up, but if we could enhance this same concept another couple of notches???
 
-## True CSS-in-JS, Styled Components (30 min / 1:10)
+### Option 4: CSS-in-JS
 
 There are many libraries that customize and tweak the concept React natively supports (that we just reviewed. The biggest libraries you can use are listed:
 
@@ -162,11 +156,7 @@ The first time you see this, it's kinda shocking. We're been separating out our 
 
 As applications and user demands have gotten increasingly sophisticated, the toolkit needed to deliver those experiences have grown alongside it. This is very much a pattern you will see in production, mid-tier to large scale organizations. It's now very common.
 
-Don't get caught in the cross talk about what a 'real' website is. You've learned page-based architecture, now learn component-based ones that utilize the best of breed tools like `styled-components`. Save the arguments for someone else.
-
-<!-- ## Advanced Styled-components
-
-TBD. -->
+Don't get caught in the cross talk about what a 'real' website is. You've learned page-based architecture, now learn component-based ones that utilize the best of tools like `styled-components`.
 
 ## Thoughts on CSS-in-JSS
 
